@@ -1,10 +1,16 @@
 $color-dark-pink: rgb(182, 44, 74);
 $color-light-yellow: rgb(247, 203, 8);
 $color-book-background: rgba(245, 237, 237, 0.815);
+$color-fiction-background: rgba(248, 250, 245, 0.815);
+$color-mystery-background: rgba(243, 239, 239, 0.897);
+$color-fantasy-background: rgba(245, 237, 237, 0.815);
+$color-grey: rgba(105, 90, 90, 0.815);
 $color-black: rgb(0, 0, 0);
 $color-white: #fff;
 $color-green: rgb(7, 51, 7);
+$color-light-pink: #ca8e6a;
 
+// also default for Love-Fantacy book category
 .book {
   &__main {
     cursor: pointer;
@@ -18,6 +24,7 @@ $color-green: rgb(7, 51, 7);
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0rem 1.5rem 4rem rgba($color-black, 0.15);
+  margin: 5rem;
 
   &__details {
     padding: 0.5rem;
@@ -55,14 +62,19 @@ $color-green: rgb(7, 51, 7);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   background-size: cover;
-  background-image: url(../images/love-fantacy.jpeg);
+  // background-image: url(../images/love-fantacy.jpeg);
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
 
   &__heading {
     position: absolute;
     background-image: linear-gradient(
       to bottom right,
       rgba($color-dark-pink, 1),
-      rgba($color-light-yellow, 0.85)
+      rgba($color-light-pink, 0.85)
     );
     color: $color-white;
     top: 9rem;
@@ -86,6 +98,62 @@ $color-green: rgb(7, 51, 7);
     margin: 2rem 0;
     &:hover {
       background-color: $color-dark-pink;
+    }
+  }
+}
+
+// Book styles based on react props (these styles are based on category)
+.fiction {
+  background-color: $color-fiction-background;
+  &__main {
+    cursor: pointer;
+    &:hover {
+      background-color: lighten($color: $color-green, $amount: 83%);
+    }
+  }
+  &__heading {
+    background-image: linear-gradient(
+      to bottom right,
+      rgba($color-green, 1),
+      rgba($color-light-yellow, 0.45)
+    );
+  }
+
+  &__details {
+    &__ul {
+      & li {
+        &:not(:last-child) {
+          border-bottom: 0.1rem solid
+            lighten($color: $color-green, $amount: 35%);
+        }
+      }
+    }
+  }
+}
+
+.mystery {
+  background-color: $color-mystery-background;
+  &__main {
+    cursor: pointer;
+    &:hover {
+      background-color: lighten($color: $color-grey, $amount: 43%);
+    }
+  }
+  &__heading {
+    background-image: linear-gradient(
+      to bottom right,
+      rgba($color-grey, 1),
+      rgba($color-black, 0.2)
+    );
+  }
+
+  &__details {
+    &__ul {
+      & li {
+        &:not(:last-child) {
+          border-bottom: 0.1rem solid lighten($color: $color-grey, $amount: 25%);
+        }
+      }
     }
   }
 }

@@ -1,10 +1,10 @@
-import Book from './components/Book'
+import Books from './components/Books/Books'
 import './App.scss'
 
 function App() {
   return (
     <div >
-      <Book />
+      <Books />
     </div>
   );
 }
