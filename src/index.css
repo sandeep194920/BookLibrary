@@ -1,13 +1,13 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  /* root font-size . This defines what 1rem is - which is 10px (easier for calculation based on this) */
+  /* Default is 16px but we need a % equal to 10px (1rem) which is 10/16 which is 62.5% */
+  font-size: 62.5%;
+  font-family: "Lato", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  /* paddings and margins must abide by the size of the component, so setting it to border-box and not content-box */
+  box-sizing: border-box;
+  padding: 0rem;
+  color: #777;
 }
