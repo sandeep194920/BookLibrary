@@ -4,6 +4,7 @@ import fantacy from "../../images/love-fantacy.jpeg"
 import fiction from "../../images/fiction.jpg";
 import mystery from "../../images/mystery.jpg";
 
+
 function Book(props) {
     const { category, language, name, pages, price } = props;
     const [imgSrc, setImgSrc] = useState(fiction);
@@ -35,7 +36,7 @@ function Book(props) {
 
     return (
         <div className={`${classes.book} ${classes[style]}`}>
-            <div className={`${classes.book__main} ${classes[style + "__main"]}`} onClick={() => alert("Clicked Book")}>
+            <div className={`${classes.book__main} ${classes[style + "__main"]}`} onClick={props.showDetails}>
                 <div className={classes.header}>
                     <img className={classes.header__img} src={imgSrc} alt="cover_image" />
                     <h3 className={`${classes.header__heading} ${classes[style + "__heading"]}`}>{name}</h3>

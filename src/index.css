@@ -11,4 +11,6 @@ body {
   padding: 0;
   margin: 0;
   color: #777;
+  /* making this relative as we are using react portals for popup which is absolutely positioned */
+  position: relative;
 }
