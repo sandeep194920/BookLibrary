@@ -28,6 +28,7 @@ export const booksData = [
         pages: "270"
     },
     {
+        id: 4,
         name: 'Self respect',
         category: 'Fiction',
         language: 'English',
@@ -35,6 +36,7 @@ export const booksData = [
         pages: "170"
     },
     {
+        id: 5,
         name: 'A Sweet Pain',
         category: 'Love Fantacy',
         language: 'German',
@@ -42,6 +44,7 @@ export const booksData = [
         pages: "120"
     },
     {
+        id: 6,
         name: 'Invisible weapon',
         category: 'Thriller Mystery',
         language: 'English',

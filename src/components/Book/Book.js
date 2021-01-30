@@ -3,10 +3,12 @@ import classes from "./Book.module.scss";
 import fantacy from "../../images/love-fantacy.jpeg"
 import fiction from "../../images/fiction.jpg";
 import mystery from "../../images/mystery.jpg";
+import { connect } from "react-redux";
+import * as actionCreators from '../../redux/actions/';
 
 
 function Book(props) {
-    const { category, language, name, pages, price } = props;
+    const { category, language, name, pages, price, id } = props;
     const [imgSrc, setImgSrc] = useState(fiction);
     const [style, setStyle] = useState("fiction");
 
@@ -36,7 +38,7 @@ function Book(props) {
 
     return (
         <div className={`${classes.book} ${classes[style]}`}>
-            <div className={`${classes.book__main} ${classes[style + "__main"]}`} onClick={props.showDetails}>
+            <div className={`${classes.book__main} ${classes[style + "__main"]}`} onClick={() => props.onShowBookDetails(id)}>
                 <div className={classes.header}>
                     <img className={classes.header__img} src={imgSrc} alt="cover_image" />
                     <h3 className={`${classes.header__heading} ${classes[style + "__heading"]}`}>{name}</h3>
@@ -54,9 +56,28 @@ function Book(props) {
                 </div>
             </div>
             <div className={`${classes.button__container}`}>
-                <button onClick={() => alert("Clicked delete")} className={classes.button__container__red}>Delete</button>
+                {/* <button onClick={props.onIncrementCounter} className={classes.button__container__red}>Delete</button> */}
+                {/* <button onClick={() => alert("Clicked delete")} className={classes.button__container__red}>Delete</button> */}
             </div>
         </div >
     )
 }
-export default Book;
+
+const mapStateToProps = state => ({
+    // bookDetails: state.bookDetails,
+    // count: state.count
+})
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onShowBookDetails: (id) => dispatch(actionCreators.showBookDetails(id)),
+        onIncrementCounter: () => dispatch(actionCreators.increment()),
+        // onAddCounter: (value) => dispatch(actionCreators.add(value)),
+        // onSubtractCounter: (value) => dispatch(actionCreators.subtract(value)),
+        // onStoreResult: (result) => dispatch(actionCreators.storeResult(result)),
+        // onDeleteResult: (value) => dispatch(actionCreators.deleteResult(value))
+    };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Book);
