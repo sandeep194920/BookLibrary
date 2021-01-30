@@ -38,10 +38,13 @@ function BookDetails({ setShowPopup }) {
                     <p className={`${classes.details__desc} ${classes.details__det}`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.</p>
                 </div>
 
+                <div className={classes.btn__container}>
+                    <button className={`${classes.btn} ${classes.btn__edit}`} onClick={() => setShowPopup(false)}>Edit</button>
+                    <button className={`${classes.btn} ${classes.btn__close}`} onClick={() => setShowPopup(false)}>Close</button>
+                </div>
             </div>
         </div>
     )
-    // {/* <button onClick={() => setShowPopup(false)}>Close</button> */ }
 
 }
 
