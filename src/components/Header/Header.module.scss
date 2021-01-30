@@ -3,6 +3,8 @@ $color-light-yellow: rgb(247, 203, 8);
 $color-light-pink: rgb(202, 142, 106);
 $color-light-blue: rgb(22, 144, 153);
 $color-white: #fff;
+$color-dark-blue: rgb(0, 54, 85);
+
 .header {
   position: relative; //logo is made absolute, hence this acts as a container for logo whose position should be relative
   background-image: linear-gradient(
@@ -25,5 +27,13 @@ $color-white: #fff;
     position: absolute;
     top: 2.4rem;
     left: 8rem;
+  }
+  &__btn {
+    background-color: $color-dark-blue;
+    // color: black;
+    float: right;
+    margin-top: 1.2rem;
+    padding: 1.5rem 2.5rem;
+    font-size: 1.3rem;
   }
 }
