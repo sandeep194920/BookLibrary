@@ -4,10 +4,20 @@
 import React, { cloneElement } from 'react'
 import ReactDOM from 'react-dom';
 import Backdrop from '../Backdrop/Backdrop'
+import { connect } from "react-redux";
 
-function Modal({ setShowPopup, children }) {
+
+function Modal({ showPopup, setShowPopup, children, ...props }) {
+
+    React.useEffect(() => {
+        console.log(props.bookSelected)
+    }, [props.bookSelected])
 
     return ReactDOM.createPortal(
+
+        (showPopup) &&
+
+
         <div>
             <Backdrop setShowPopup={setShowPopup} />
             {/* {children} */}
@@ -15,7 +25,14 @@ function Modal({ setShowPopup, children }) {
 
         </div>,
         document.getElementById('portal-root')
+
+
     )
 }
 
-export default Modal
+const mapStateToProps = state => ({
+
+    bookSelected: state.bookSelected,
+})
+
+export default connect(mapStateToProps)(Modal)

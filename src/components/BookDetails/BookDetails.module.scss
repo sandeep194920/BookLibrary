@@ -4,6 +4,7 @@ $color-light-pink: rgb(202, 142, 106);
 $color-light-blue: rgb(22, 144, 153);
 $color-white: #fff;
 $color-dark-blue: rgb(0, 54, 85);
+$color-dark-pink: rgb(182, 44, 74);
 
 .bookDetails {
   background-color: rgb(61, 57, 44);
@@ -92,4 +93,9 @@ $color-dark-blue: rgb(0, 54, 85);
   padding: 1.5rem 1rem;
   font-size: 1.5rem;
   margin: 2rem;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: darken($color-dark-blue, 10%);
+  }
 }

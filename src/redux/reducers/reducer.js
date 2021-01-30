@@ -1,8 +1,11 @@
 import * as actionTypes from "../actions/actionTypes";
+import { booksData } from '../../utils/data'
 
 
 const inititalState = {
-    count: 4
+    books: booksData,
+    bookSelected: null,
+    showBookDetails: false
 }
 function reducer(state = inititalState, action) {
     switch (action.type) {
@@ -13,8 +16,11 @@ function reducer(state = inititalState, action) {
             };
         case actionTypes.SHOW_BOOK_DETAILS:
             console.log("REached show book detail reducer with id ", action.id)
-            break
-
+            return {
+                ...state,
+                bookSelected: state.books[action.id],
+                showBookDetails: true
+            };
         default:
             return state;
     }

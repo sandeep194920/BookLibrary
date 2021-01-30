@@ -1,7 +1,12 @@
 import React from 'react'
 import classes from "./BookDetails.module.scss"
+import { connect } from "react-redux";
 
-function BookDetails({ setShowPopup }) {
+function BookDetails({ setShowPopup, ...props }) {
+
+    React.useEffect(() => {
+        console.log(props.bookSelected)
+    }, [props])
 
     return (
         <div className={classes.bookDetails}>
@@ -48,4 +53,9 @@ function BookDetails({ setShowPopup }) {
 
 }
 
-export default BookDetails;
+const mapStateToProps = state => ({
+
+    bookSelected: state.bookSelected,
+})
+
+export default connect(mapStateToProps)(BookDetails);

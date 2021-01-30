@@ -12,6 +12,7 @@ function Book(props) {
     const [imgSrc, setImgSrc] = useState(fiction);
     const [style, setStyle] = useState("fiction");
 
+
     useEffect(() => {
         switch (category) {
             case "Love Fantacy":
@@ -56,15 +57,15 @@ function Book(props) {
                 </div>
             </div>
             <div className={`${classes.button__container}`}>
-                {/* <button onClick={props.onIncrementCounter} className={classes.button__container__red}>Delete</button> */}
-                {/* <button onClick={() => alert("Clicked delete")} className={classes.button__container__red}>Delete</button> */}
+                <button onClick={() => alert("Clicked delete")} className={classes.button__container__red}>Delete</button>
             </div>
         </div >
     )
 }
 
 const mapStateToProps = state => ({
-    // bookDetails: state.bookDetails,
+
+    // bookSelected: state.bookSelected
     // count: state.count
 })
 

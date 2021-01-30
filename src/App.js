@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import Books from './components/Books/Books'
 import './App.scss'
 import Header from './components/Header/Header';
-import Backdrop from './components/Popup/Backdrop/Backdrop';
 import BookDetails from './components/BookDetails/BookDetails';
 import Modal from './components/Popup/Modal/Modal';
+import { connect } from "react-redux";
 
 function App() {
 
@@ -14,9 +14,9 @@ function App() {
   return (
     <div>
       {
-        showPopup &&
+        (showPopup) &&
 
-        <Modal setShowPopup={setShowPopup}>
+        <Modal showPopup={showPopup} setShowPopup={setShowPopup}>
           <BookDetails />
         </Modal>
 
@@ -27,4 +27,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  showBookDetails: state.showBookDetails,
+})
+
+export default connect(mapStateToProps)(App);
