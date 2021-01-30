@@ -8,6 +8,7 @@ html {
 body {
   /* paddings and margins must abide by the size of the component, so setting it to border-box and not content-box */
   box-sizing: border-box;
-  padding: 0rem;
+  padding: 0;
+  margin: 0;
   color: #777;
 }

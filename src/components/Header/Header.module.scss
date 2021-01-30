@@ -1,0 +1,29 @@
+$color-green: rgb(7, 51, 7);
+$color-light-yellow: rgb(247, 203, 8);
+$color-light-pink: rgb(202, 142, 106);
+$color-light-blue: rgb(22, 144, 153);
+$color-white: #fff;
+.header {
+  position: relative; //logo is made absolute, hence this acts as a container for logo whose position should be relative
+  background-image: linear-gradient(
+    16deg,
+    rgba($color-green, 1) 30%,
+    rgba($color-light-yellow, 0.85) 70%,
+    rgba($color-light-blue, 0.85) 96%
+  );
+  color: $color-white;
+  padding: 3rem;
+  &__text {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    display: inline-block;
+    margin-left: 17rem;
+  }
+  &__logo {
+    width: 7rem;
+    position: absolute;
+    top: 2.4rem;
+    left: 8rem;
+  }
+}

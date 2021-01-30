@@ -13,7 +13,8 @@ function Books(props) {
                 <Book category="Fiction" language="Spanish" name="Power of Belief" pages="300" price="50" /> */}
                 {booksData.map(book => {
                     return (
-                        <Book {...book} />
+                        // book id is enough to make this unique, but adding name as well to the key to confirm the data doesn't get repeated and also to avoid the warning that shows in dev tools
+                        <Book key={book.id + book.name} {...book} />
                     )
                 })}
 

@@ -4,6 +4,7 @@
 
 export const booksData = [
     {
+        id: 1,
         name: 'The Sacrifice',
         category: 'Love Fantacy',
         language: 'English',
@@ -11,6 +12,7 @@ export const booksData = [
         pages: "220"
     },
     {
+        id: 2,
         name: 'Innocent Criminal',
         category: 'Thriller Mystery',
         language: 'Spanish',
@@ -18,6 +20,7 @@ export const booksData = [
         pages: "250"
     },
     {
+        id: 3,
         name: 'Power of belief',
         category: 'Fiction',
         language: 'French',
