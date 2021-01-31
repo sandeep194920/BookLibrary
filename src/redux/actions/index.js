@@ -1,2 +1,2 @@
 // export { increment } from "./counter";
-export { increment, showBookDetails } from "./book";
+export { togglePopup, increment, showBookDetails } from "./book";

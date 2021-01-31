@@ -1,8 +1,9 @@
 import React from 'react'
 import classes from "./BookDetails.module.scss"
 import { connect } from "react-redux";
+import * as actionCreators from '../../redux/actions/';
 
-function BookDetails({ setShowPopup, ...props }) {
+function BookDetails(props) {
 
     React.useEffect(() => {
         console.log(props.bookSelected)
@@ -44,8 +45,8 @@ function BookDetails({ setShowPopup, ...props }) {
                 </div>
 
                 <div className={classes.btn__container}>
-                    <button className={`${classes.btn} ${classes.btn__edit}`} onClick={() => setShowPopup(false)}>Edit</button>
-                    <button className={`${classes.btn} ${classes.btn__close}`} onClick={() => setShowPopup(false)}>Close</button>
+                    <button className={`${classes.btn} ${classes.btn__edit}`} onClick={() => props.onTogglePopup(false)}>Edit</button>
+                    <button className={`${classes.btn} ${classes.btn__close}`} onClick={() => props.onTogglePopup(false)}>Close</button>
                 </div>
             </div>
         </div>
@@ -58,4 +59,11 @@ const mapStateToProps = state => ({
     bookSelected: state.bookSelected,
 })
 
-export default connect(mapStateToProps)(BookDetails);
+// for dispatching the actions into the store
+const mapDispatchToProps = dispatch => {
+    return {
+        onTogglePopup: (showPopup) => dispatch(actionCreators.togglePopup(showPopup))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookDetails);

@@ -34,9 +34,6 @@ function Book(props) {
         }
     }, [category])
 
-
-
-
     return (
         <div className={`${classes.book} ${classes[style]}`}>
             <div className={`${classes.book__main} ${classes[style + "__main"]}`} onClick={() => props.onShowBookDetails(id)}>

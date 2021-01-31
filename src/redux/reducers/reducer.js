@@ -18,9 +18,14 @@ function reducer(state = inititalState, action) {
             console.log("REached show book detail reducer with id ", action.id)
             return {
                 ...state,
-                bookSelected: state.books[action.id],
+                bookSelected: state.books[action.id - 1], // -1 because array index starts from 0 and id starts from 1
                 showBookDetails: true
             };
+        case actionTypes.SHOW_POPUP:
+            return {
+                ...state,
+                showBookDetails: action.showPopup // showPopup is a boolean. 
+            }
         default:
             return state;
     }

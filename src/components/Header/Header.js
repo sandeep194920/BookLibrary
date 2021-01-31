@@ -2,15 +2,14 @@ import React from 'react'
 import logo from "../../images/arrow-star.png"
 import classes from "./Header.module.scss"
 import { connect } from 'react-redux';
-// import * as actionCreators from '../../redux/actions/';
+import * as actionCreators from '../../redux/actions/';
 
 function Header(props) {
     return (
         <header className={classes.header}>
             <img className={classes.header__logo} src={logo} alt="Logo" />
             <h1 className={classes.header__text}>Star Book Paradise  </h1>
-            <button className={classes.header__btn} onClick={props.showPopup}>Add New Book</button>
-            {/* <button className={classes.header__btn} onClick={() => props.dispatch({ type: "INCREMENT" })}>Add New Book</button> */}
+            <button className={classes.header__btn} onClick={() => props.onTogglePopup(true)}>Add New Book</button>
         </header>
     )
 }
@@ -23,7 +22,7 @@ const mapStateToProps = state => ({
 // for dispatching the actions into the store
 const mapDispatchToProps = dispatch => {
     return {
-        // onIncrementCounter: () => dispatch(actionCreators.increment())
+        onTogglePopup: (showPopup) => dispatch(actionCreators.togglePopup(showPopup))
     }
 }
 

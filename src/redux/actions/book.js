@@ -14,3 +14,11 @@ export const increment = () => {
         type: "INCREMENT",
     };
 };
+
+export const togglePopup = (showPopup) => {
+    // console.log("Reached action creator showBookDetails with id ", id)
+    return {
+        type: actionTypes.SHOW_POPUP,
+        showPopup: showPopup, //showPopup parameter can be either true or false. True -> Show, False -> Hide
+    };
+};

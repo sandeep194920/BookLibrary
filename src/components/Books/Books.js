@@ -7,10 +7,6 @@ import { connect } from "react-redux";
 
 function Books(props) {
 
-    // React.useEffect(() => {
-    //     console.log(props.books)
-    // }, [props])
-
     return (
         <>
             <div className={classes.books}>
