@@ -10,7 +10,7 @@ export const booksData = [
         language: 'English',
         price: "30",
         pages: "220",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
+        desc: "The sacrifice, lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ export const booksData = [
         language: 'Spanish',
         price: "45",
         pages: "250",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
+        desc: "The innocent criminal, lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
     },
     {
         id: 3,
@@ -28,7 +28,7 @@ export const booksData = [
         language: 'French',
         price: "50",
         pages: "270",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
+        desc: "The power of belief, Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
     },
     {
         id: 4,
@@ -37,7 +37,7 @@ export const booksData = [
         language: 'English',
         price: "25",
         pages: "170",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
+        desc: "The self respect, lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
     },
     {
         id: 5,
@@ -46,7 +46,7 @@ export const booksData = [
         language: 'German',
         price: "43",
         pages: "120",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
+        desc: "The sweet pain, lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
     },
     {
         id: 6,
@@ -55,7 +55,7 @@ export const booksData = [
         language: 'English',
         price: "35",
         pages: "260",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
+        desc: "The invisible weapon, lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
     },
 ]
 

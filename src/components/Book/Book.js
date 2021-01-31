@@ -54,7 +54,7 @@ function Book(props) {
                 </div>
             </div>
             <div className={`${classes.button__container}`}>
-                <button onClick={() => alert("Clicked delete")} className={classes.button__container__red}>Delete</button>
+                <button onClick={() => props.onDeleteBook(id)} className={classes.button__container__red}>Delete</button>
             </div>
         </div >
     )
@@ -69,11 +69,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => {
     return {
         onShowBookDetails: (id) => dispatch(actionCreators.showBookDetails(id)),
-        onIncrementCounter: () => dispatch(actionCreators.increment()),
-        // onAddCounter: (value) => dispatch(actionCreators.add(value)),
-        // onSubtractCounter: (value) => dispatch(actionCreators.subtract(value)),
-        // onStoreResult: (result) => dispatch(actionCreators.storeResult(result)),
-        // onDeleteResult: (value) => dispatch(actionCreators.deleteResult(value))
+        onDeleteBook: (id) => dispatch(actionCreators.deleteBook(id)),
     };
 };
 

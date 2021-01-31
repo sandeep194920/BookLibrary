@@ -8,12 +8,6 @@ export const showBookDetails = (id) => {
     };
 };
 
-export const increment = () => {
-    // console.log("Reached action creator showBookDetails with id ", id)
-    return {
-        type: "INCREMENT",
-    };
-};
 
 export const togglePopup = (showPopup) => {
     // console.log("Reached action creator showBookDetails with id ", id)
@@ -22,3 +16,10 @@ export const togglePopup = (showPopup) => {
         showPopup: showPopup, //showPopup parameter can be either true or false. True -> Show, False -> Hide
     };
 };
+
+export const deleteBook = (id) => {
+    return {
+        type: actionTypes.DELETE_BOOK,
+        id: id
+    }
+}

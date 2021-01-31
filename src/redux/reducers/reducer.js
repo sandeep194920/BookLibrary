@@ -9,11 +9,6 @@ const inititalState = {
 }
 function reducer(state = inititalState, action) {
     switch (action.type) {
-        case "INCREMENT":
-            console.log("REACHED INCREMET")
-            return {
-                count: state.count + 1
-            };
         case actionTypes.SHOW_BOOK_DETAILS:
             console.log("REached show book detail reducer with id ", action.id)
             return {
@@ -25,6 +20,12 @@ function reducer(state = inititalState, action) {
             return {
                 ...state,
                 showBookDetails: action.showPopup // showPopup is a boolean. 
+            }
+        case actionTypes.DELETE_BOOK:
+            const updatedBooks = state.books.filter(book => book.id !== action.id); // removing / filtering the deleted book from the array
+            return {
+                ...state,
+                books: updatedBooks
             }
         default:
             return state;
