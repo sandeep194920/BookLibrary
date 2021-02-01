@@ -9,6 +9,7 @@ function Books(props) {
 
     return (
         <>
+            {props.books.length === 0 && <h1 className={classes.nobooks}>Aw snap, my book library went bankrupt. There are no more books to display. Please reload the page to save my business.</h1>}
             <div className={classes.books}>
                 {/*Static Data for testing */}
                 {/* <Book category="Love Fantacy" language="English" name="The Sacrifice" pages="220" price="30" />

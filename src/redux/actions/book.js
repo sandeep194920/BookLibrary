@@ -23,3 +23,10 @@ export const deleteBook = (id) => {
         id: id
     }
 }
+
+export const updateBook = (updatedBook) => {
+    return {
+        type: actionTypes.UPDATE_BOOK,
+        updatedBook: updatedBook
+    }
+}

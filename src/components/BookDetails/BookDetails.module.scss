@@ -8,7 +8,7 @@ $color-dark-pink: rgb(182, 44, 74);
 
 .bookDetails {
   background-color: rgb(61, 57, 44);
-  width: 70%;
+  width: 60%;
   margin: 10rem auto;
   // height: 60rem; // will be removed later
   z-index: 100;
@@ -63,13 +63,10 @@ $color-dark-pink: rgb(182, 44, 74);
     text-decoration: underline;
     text-underline-position: under;
   }
-  // &__name {
-  //   margin-left: 19.4%;
-  // }
+
   &__desc {
     // background-color: wheat;
     max-width: 50%;
-    // margin-left: 15%;
     line-height: 3.5rem;
     letter-spacing: 0.3px;
     text-decoration: none;
@@ -97,5 +94,31 @@ $color-dark-pink: rgb(182, 44, 74);
 
   &:hover {
     background-color: darken($color-dark-blue, 10%);
+  }
+}
+
+//edit fields
+.edit {
+  &__det {
+    width: 30%;
+    margin-top: 2%;
+    margin-left: 10%;
+    height: 3rem;
+    border-radius: 3rem;
+    border: none;
+    outline: none;
+    padding: 0.5rem 2rem;
+    background-color: rgb(218, 218, 224);
+    font-size: 1.7rem;
+    font-family: inherit; //font-family will not be inherited for input elements, hence specifying it explicitly
+  }
+  &__desc {
+    resize: none; //auto-resize disabled for text-area
+    height: 8rem;
+    border-radius: 1rem;
+  }
+  &__cat {
+    width: 34%;
+    height: 4rem;
   }
 }
