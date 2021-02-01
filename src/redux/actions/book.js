@@ -33,7 +33,15 @@ export const updateBook = (updatedBook) => {
 
 export const addBookMode = (addBookMode) => {
     return {
-        type: actionTypes.ADD_BOOK,
+        type: actionTypes.ADD_BOOK_MODE,
         addBookMode: addBookMode
+    }
+}
+
+export const newBooks = (newBooks, newBook) => {
+    return {
+        type: actionTypes.ADD_BOOK,
+        newBooks: newBooks,
+        selectedBook: newBook
     }
 }

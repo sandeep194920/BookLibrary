@@ -7,6 +7,10 @@ import { connect } from "react-redux";
 
 function Books(props) {
 
+    React.useEffect(() => {
+        console.log("The books are");
+    }, [props.books])
+
     return (
         <>
             {props.books.length === 0 && <h1 className={classes.nobooks}>Aw snap, my book library went bankrupt. There are no more books to display. Please reload the page to save my business.</h1>}

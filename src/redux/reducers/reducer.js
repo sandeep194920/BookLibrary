@@ -26,6 +26,12 @@ function reducer(state = inititalState, action) {
                 ...state,
                 showBookDetails: action.showPopup // showPopup is a boolean. 
             }
+        case actionTypes.ADD_BOOK:
+            return {
+                ...state,
+                books: action.newBooks,
+                bookSelected: action.selectedBook
+            };
         case actionTypes.DELETE_BOOK:
             const updatedBooks = state.books.filter(book => book.id !== action.id); // removing / filtering the deleted book from the array
             console.log("Deleted the book with id ", action.id)
@@ -53,13 +59,14 @@ function reducer(state = inititalState, action) {
                 books: newBooks
             };
 
-        case actionTypes.ADD_BOOK:
+        case actionTypes.ADD_BOOK_MODE:
             console.log(action.addBookMode)
             return {
                 ...state,
                 addBookMode: action.addBookMode,
                 showBookDetails: action.addBookMode
             }
+
         default:
             return state;
     }

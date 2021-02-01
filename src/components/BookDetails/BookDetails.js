@@ -22,23 +22,65 @@ function BookDetails(props) {
         e.preventDefault();
         console.log("Form submit")
 
-        setMode(prevMode => {
-            if (prevMode === "default" || prevMode === "add") {
-                return "edit"
-            } else {
-                // saving the existing book
+        //  below data is required for adding new book or updating the exisiting book
+        const bookTitle = title ? title : props.bookSelected.name;
+        const bookPrice = price ? price : props.bookSelected.price;
+        const bookPages = pages ? pages : props.bookSelected.pages;
+        const bookCategory = category ? category : props.bookSelected.category;
+        const bookLang = language ? language : props.bookSelected.language;
+        const bookDesc = desc ? desc : props.bookSelected.desc;
 
+        setMode(prevMode => {
+            if (prevMode === "default") {
+                console.log("REached if")
+                return "edit"
+            }
+            else if (prevMode === "add") {
+                //creating a new book here. We fetch the existing books thereby their IDs. We will give our book a new id and then send it to the reducer which inturn pushes the new book to the books array
+                console.log("REached esle if");
+                console.log(props.books)
+
+                // we get the last id in the books so we can create a book with new id which is lastId + 1
+                const ids = props.books.map(book => book.id);
+                let lastId = null;
+                if (props.books.length === 0) {
+                    lastId = 0;
+                } else {
+                    lastId = Math.max(...ids);
+                }
+                console.log(lastId)
+
+
+                const newBookId = lastId + 1;
+                const newBook = {
+                    id: newBookId,
+                    name: bookTitle,
+                    category: bookCategory,
+                    language: bookLang,
+                    price: bookPrice,
+                    pages: bookPages,
+                    desc: bookDesc
+                }
+                // we could have also done this in reducer, but for now, I'll stick with this process of updating the books right here
+                const newBooks = props.books.concat(newBook); // creates new array of books
+                props.onNewBooks(newBooks, newBook);
+                return "default"
+            }
+            else {
+                // saving the existing book
+                console.log("REached else")
                 // if existing value is not updated then we take the passed value from props 
-                const bookTitle = title ? title : props.bookSelected.name;
-                const bookPrice = price ? price : props.bookSelected.price;
-                const bookPages = pages ? pages : props.bookSelected.pages;
-                const bookCategory = category ? category : props.bookSelected.category;
-                const bookLang = language ? language : props.bookSelected.language;
-                const bookDesc = desc ? desc : props.bookSelected.desc;
+                // const bookTitle = title ? title : props.bookSelected.name;
+                // const bookPrice = price ? price : props.bookSelected.price;
+                // const bookPages = pages ? pages : props.bookSelected.pages;
+                // const bookCategory = category ? category : props.bookSelected.category;
+                // const bookLang = language ? language : props.bookSelected.language;
+                // const bookDesc = desc ? desc : props.bookSelected.desc;
 
 
                 // updating the existing book. Checking if the book exists. If id is null then book added is new book
                 if (props.bookSelected.id) {
+                    console.log("Update reached props.id")
                     const updatedBook = {
                         id: props.bookSelected.id,
                         name: bookTitle,
@@ -51,6 +93,8 @@ function BookDetails(props) {
 
                     // sending this action to reducer to update the book
                     props.onUpdateBook(updatedBook);
+                } else {
+                    console.log("No book to update")
                 }
 
                 return "default"
@@ -152,6 +196,8 @@ function BookDetails(props) {
         </div >
     )
 
+
+    // if add btn at the top right is clicked then the mode changes to add, else it remains in default
     useEffect(() => {
         if (props.addBookMode) {
             setMode("add");
@@ -175,14 +221,16 @@ function BookDetails(props) {
 const mapStateToProps = state => ({
 
     bookSelected: state.bookSelected,
-    addBookMode: state.addBookMode
+    addBookMode: state.addBookMode,
+    books: state.books
 })
 
 // for dispatching the actions into the store
 const mapDispatchToProps = dispatch => {
     return {
         onTogglePopup: (showPopup) => dispatch(actionCreators.togglePopup(showPopup)),
-        onUpdateBook: (updatedBook) => dispatch(actionCreators.updateBook(updatedBook))
+        onUpdateBook: (updatedBook) => dispatch(actionCreators.updateBook(updatedBook)),
+        onNewBooks: (newBooks, newBook) => dispatch(actionCreators.newBooks(newBooks, newBook)),
     }
 }
 
