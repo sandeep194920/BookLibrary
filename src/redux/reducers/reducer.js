@@ -4,8 +4,9 @@ import { booksData } from '../../utils/data'
 
 const inititalState = {
     books: booksData,
-    bookSelected: null,
-    showBookDetails: false
+    bookSelected: booksData[0], // setting this to a random book. This can be any book because initially, when add btn is clicked and if this null, we get an error since it fetches the bookSelected details. Henc setting this to book[0]
+    showBookDetails: false,
+    addBookMode: false
 }
 function reducer(state = inititalState, action) {
     switch (action.type) {
@@ -17,7 +18,8 @@ function reducer(state = inititalState, action) {
             return {
                 ...state,
                 bookSelected: selectedBook[0], // we need the first object (filtered and one & only object)
-                showBookDetails: true
+                showBookDetails: true,
+                addBookMode: false, // the mode is not add. If it's add then the input tags will be empty in the form
             };
         case actionTypes.SHOW_POPUP:
             return {
@@ -50,6 +52,14 @@ function reducer(state = inititalState, action) {
                 bookSelected: action.updatedBook,
                 books: newBooks
             };
+
+        case actionTypes.ADD_BOOK:
+            console.log(action.addBookMode)
+            return {
+                ...state,
+                addBookMode: action.addBookMode,
+                showBookDetails: action.addBookMode
+            }
         default:
             return state;
     }

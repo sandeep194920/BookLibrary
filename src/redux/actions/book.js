@@ -30,3 +30,10 @@ export const updateBook = (updatedBook) => {
         updatedBook: updatedBook
     }
 }
+
+export const addBookMode = (addBookMode) => {
+    return {
+        type: actionTypes.ADD_BOOK,
+        addBookMode: addBookMode
+    }
+}

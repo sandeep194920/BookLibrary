@@ -9,7 +9,7 @@ function Header(props) {
         <header className={classes.header}>
             <img className={classes.header__logo} src={logo} alt="Logo" />
             <h1 className={classes.header__text}>Star Book Paradise  </h1>
-            <button className={classes.header__btn} onClick={() => props.onTogglePopup(true)}>Add New Book</button>
+            <button className={classes.header__btn} onClick={() => props.onAddBookMode(true)}>Add New Book</button>
         </header>
     )
 }
@@ -22,7 +22,8 @@ const mapStateToProps = state => ({
 // for dispatching the actions into the store
 const mapDispatchToProps = dispatch => {
     return {
-        onTogglePopup: (showPopup) => dispatch(actionCreators.togglePopup(showPopup))
+        // onTogglePopup: (showPopup) => dispatch(actionCreators.togglePopup(showPopup))
+        onAddBookMode: (addMode) => dispatch(actionCreators.addBookMode(addMode)),
     }
 }
 

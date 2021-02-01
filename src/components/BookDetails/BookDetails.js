@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import classes from "./BookDetails.module.scss"
 import { connect } from "react-redux";
 import * as actionCreators from '../../redux/actions/';
@@ -15,7 +15,7 @@ function BookDetails(props) {
     // We have 3 modes - "edit", "add" and "default". edit mode is when User clicks on edit btn. default is when user updates the info and clicks save. add is when new book is added by clicking add btn at the top right corner of the app
     // edit mode / add mode - btn should show - Save
     // default mode - btn should show - Edit
-    const [mode, setMode] = useState("default");
+    const [mode, setMode] = useState('default');
 
     // when user clicks on Edit / Save btn
     const modeClickHandler = (e) => {
@@ -26,8 +26,8 @@ function BookDetails(props) {
             if (prevMode === "default" || prevMode === "add") {
                 return "edit"
             } else {
-                console.log("Saving the book")
-                console.log(props.bookSelected.id);
+                // saving the existing book
+
                 // if existing value is not updated then we take the passed value from props 
                 const bookTitle = title ? title : props.bookSelected.name;
                 const bookPrice = price ? price : props.bookSelected.price;
@@ -36,7 +36,6 @@ function BookDetails(props) {
                 const bookLang = language ? language : props.bookSelected.language;
                 const bookDesc = desc ? desc : props.bookSelected.desc;
 
-                console.log(bookTitle, bookPrice, bookPages, bookCategory, bookLang, bookDesc);
 
                 // updating the existing book. Checking if the book exists. If id is null then book added is new book
                 if (props.bookSelected.id) {
@@ -58,6 +57,7 @@ function BookDetails(props) {
             }
         });
     }
+
 
     const detailsDefault = (
         <div className={classes.details}>
@@ -151,6 +151,17 @@ function BookDetails(props) {
             </form>
         </div >
     )
+
+    useEffect(() => {
+        if (props.addBookMode) {
+            setMode("add");
+        } else {
+            setMode("default")
+        }
+    }, [props.addBookMode])
+
+
+
     return (
         <div className={classes.bookDetails}>
 
@@ -164,6 +175,7 @@ function BookDetails(props) {
 const mapStateToProps = state => ({
 
     bookSelected: state.bookSelected,
+    addBookMode: state.addBookMode
 })
 
 // for dispatching the actions into the store
