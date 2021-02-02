@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import Book from '../Book/Book'
 import classes from "./Books.module.scss";
 import { connect } from "react-redux";
 
 
 function Books(props) {
+
+    const divRef = useRef(null);
+
+    // when new book is added, the page scrolls down to place of new book which is done by useRef
+    useEffect(() => {
+        console.log(props.newBookAdded)
+        if (props.newBookAdded) {
+            window.scrollTo({
+                behavior: "smooth",
+                top: divRef.current.offsetTop
+            });
+        }
+    }, [props.newBookAdded]);
 
     return (
         <>
@@ -22,12 +35,15 @@ function Books(props) {
                 })}
 
             </div>
+            {/* to scroll to this div after a book gets added */}
+            <div ref={divRef} ></div>
         </>
     )
 }
 
 const mapStateToProps = state => ({
-    books: state.books
+    books: state.books,
+    newBookAdded: state.newBookAdded
 })
 
 export default connect(mapStateToProps)(Books);

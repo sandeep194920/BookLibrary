@@ -5,6 +5,9 @@ import * as actionCreators from '../../redux/actions/';
 
 function BookDetails(props) {
 
+    // character count remaining
+    const [count, setCount] = useState(0);
+
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
@@ -16,6 +19,29 @@ function BookDetails(props) {
     // edit mode / add mode - btn should show - Save
     // default mode - btn should show - Edit
     const [mode, setMode] = useState('default');
+
+
+    // if new book is added then we set the description count to 0
+    useEffect(() => {
+        if (props.addBookMode) {
+            setCount(0);
+        }
+    }, [props.addBookMode, count])
+
+    // if existing book is selected for an edit then it shows the description text count
+    useEffect(() => {
+        const descCount = desc ? desc : props.bookSelected.desc;
+        setCount(descCount.length)
+    }, [desc, props.bookSelected])
+
+
+
+    const descriptionHandler = (e) => {
+
+        setDesc(e.target.value);
+        setCount(prevCount => prevCount + 1);
+    }
+
 
     // when user clicks on Edit / Save btn
     const modeClickHandler = (e) => {
@@ -135,12 +161,12 @@ function BookDetails(props) {
 
                 <div className={classes.details__key__val}>
                     <p className={`${classes.details__pricehead} ${classes.details__head}`}>Price </p>
-                    <input id="bookprice" type="number" className={`${classes.edit__price} ${classes.edit__det}`} required onChange={(e) => setPrice(e.target.value)} defaultValue={mode === "add" ? price : props.bookSelected.price} />
+                    <input id="bookprice" type="number" min="1" className={`${classes.edit__price} ${classes.edit__det}`} required onChange={(e) => setPrice(e.target.value)} defaultValue={mode === "add" ? price : props.bookSelected.price} />
                 </div>
 
                 <div className={classes.details__key__val}>
                     <p className={`${classes.details__pageshead} ${classes.details__head}`}>Pages </p>
-                    <input id="bookpages" type="number" className={`${classes.edit__pages} ${classes.edit__det}`} required onChange={(e) => setPages(e.target.value)} defaultValue={mode === "add" ? pages : props.bookSelected.pages} />
+                    <input id="bookpages" type="number" min="1" className={`${classes.edit__pages} ${classes.edit__det}`} required onChange={(e) => setPages(e.target.value)} defaultValue={mode === "add" ? pages : props.bookSelected.pages} />
 
                 </div>
 
@@ -164,13 +190,14 @@ function BookDetails(props) {
 
                 <div className={classes.details__key__val}>
                     <p className={`${classes.details__deschead} ${classes.details__head}`}>Description </p>
-                    <input type="text" className={`${classes.edit__desc} ${classes.edit__det}`} required onChange={(e) => setDesc(e.target.value)} defaultValue={mode === "add" ? desc : props.bookSelected.desc} />
-                    {/* <textarea id="bookdesc" className={`${classes.edit__desc} ${classes.edit__det}`} required onChange={(e) => setDesc(e.target.value)} defaultValue={mode === "add" ? desc : props.bookSelected.desc} /> */}
+                    {/* <input type="text" className={`${classes.edit__desc} ${classes.edit__det}`} required onChange={(e) => setDesc(e.target.value)} defaultValue={mode === "add" ? desc : props.bookSelected.desc} /> */}
+                    <textarea maxLength="250" id="bookdesc" className={`${classes.edit__desc} ${classes.edit__det}`} required onChange={descriptionHandler} defaultValue={mode === "add" ? desc : props.bookSelected.desc} />
+                    <p className={classes.edit__desc__count}>{count}/250</p>
                 </div>
 
                 <div className={classes.btn__container}>
                     <button type="submit" className={`${classes.btn} ${classes.btn__edit}`}>{(mode === "default") ? "Edit" : "Save"}</button>
-                    <button className={`${classes.btn} ${classes.btn__close}`} onClick={() => props.onTogglePopup(false)}>Close</button>
+                    <button className={`${classes.btn} ${classes.btn__close}`} onClick={() => props.onTogglePopup(false)}>{mode === "default" ? "Close" : "Cancel"}</button>
                 </div>
             </form>
         </div >
