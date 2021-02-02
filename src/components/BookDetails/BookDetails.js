@@ -185,7 +185,8 @@ function BookDetails(props) {
 
                 <div className={classes.details__key__val}>
                     <p className={`${classes.details__deschead} ${classes.details__head}`}>Description </p>
-                    <textarea id="bookdesc" className={`${classes.edit__desc} ${classes.edit__det}`} required onChange={(e) => setDesc(e.target.value)} defaultValue={mode === "add" ? desc : props.bookSelected.desc} />
+                    <input type="text" className={`${classes.edit__desc} ${classes.edit__det}`} required onChange={(e) => setDesc(e.target.value)} defaultValue={mode === "add" ? desc : props.bookSelected.desc} />
+                    {/* <textarea id="bookdesc" className={`${classes.edit__desc} ${classes.edit__det}`} required onChange={(e) => setDesc(e.target.value)} defaultValue={mode === "add" ? desc : props.bookSelected.desc} /> */}
                 </div>
 
                 <div className={classes.btn__container}>

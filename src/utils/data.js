@@ -57,5 +57,32 @@ export const booksData = [
         pages: "260",
         desc: "The invisible weapon, lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
     },
+    {
+        id: 7,
+        name: 'Who can it be?',
+        category: 'Thriller Mystery',
+        language: 'English',
+        price: "55",
+        pages: "250",
+        desc: "How can it be, lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
+    },
+    {
+        id: 8,
+        name: 'The Day before',
+        category: 'Love Fantacy',
+        language: 'English',
+        price: "30",
+        pages: "230",
+        desc: "The Day before, lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
+    },
+    {
+        id: 9,
+        name: 'Life isn\'t serious',
+        category: 'Fiction',
+        language: 'English',
+        price: "25",
+        pages: "170",
+        desc: "Life isn't serious, lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vel quis odit corporis impedit! Exercitationem ipsum quo pariatur dignissimos veniam natus soluta eaque expedita sunt saepe.",
+    },
 ]
 

@@ -1,9 +1,14 @@
 .books {
-  //   background-color: black;
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
-  width: 70%;
+  // margin: auto;
+  max-width: 100%;
+  // justify-content: stretch;
+
+  @media only screen and (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .nobooks {
   color: red;

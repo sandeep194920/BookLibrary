@@ -7,7 +7,6 @@ $color-dark-blue: rgb(0, 54, 85);
 $color-dark-pink: rgb(182, 44, 74);
 
 .bookDetails {
-  background-color: rgb(61, 57, 44);
   width: 60%;
   margin: 10rem auto;
   // height: 60rem; // will be removed later
@@ -15,31 +14,49 @@ $color-dark-pink: rgb(182, 44, 74);
   position: fixed;
   top: 50%;
   left: 50%;
-  padding: 6rem;
+  // padding: 4rem;
   transform: translate(
     -50%,
     -65%
   ); // this aligns the center of the popup to the center of the screen
+  @media only screen and (max-width: 900px) {
+    width: 80%;
+  }
+  @media only screen and (max-width: 500px) {
+    width: 90%;
+  }
+  @media only screen and (max-width: 300px) {
+    width: 100%;
+  }
+
   background-image: linear-gradient(
-    130deg,
+    140deg,
     rgba($color-green, 0.7) 30%,
-    rgba($color-light-blue, 0.45) 50%,
-    rgba($color-light-yellow, 0.85) 96%
+    rgba($color-light-blue, 0.7) 50%,
+    rgba($color-light-yellow, 0.7) 96%
   );
 }
 
 //details is the container inside the popup.
 .details {
   // background-color: rgb(212, 185, 133);
-  width: 90%;
+  max-width: 100%;
+  padding: 2rem;
   margin: auto;
   display: flex;
   flex-direction: column;
   color: $color-white;
+  @media only screen and (max-width: 600px) {
+    // padding: 1rem 0rem;
+    max-width: 100%;
+  }
 
   &__key__val {
     display: flex;
     font-size: 2rem;
+    @media only screen and (max-width: 600px) {
+      font-size: 1.7rem;
+    }
 
     & h3 {
       display: inline-block;
@@ -51,6 +68,18 @@ $color-dark-pink: rgb(182, 44, 74);
     text-decoration: underline;
     text-underline-position: under; // provides a slight gap between text and the line
     letter-spacing: 1px;
+    // background-color: blue;
+    @media only screen and (max-width: 900px) {
+      // padding: 1rem 0rem;
+      width: 10rem;
+      margin-left: 15%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      // padding: 1rem 0rem;
+      width: 10rem;
+      margin-left: 5%;
+    }
   }
   &__name {
     font-style: italic;
@@ -62,26 +91,32 @@ $color-dark-pink: rgb(182, 44, 74);
     letter-spacing: 0.8px;
     text-decoration: underline;
     text-underline-position: under;
+    @media only screen and (max-width: 600px) {
+      // padding: 1rem 0rem;
+
+      margin-left: 17%;
+    }
   }
 
   &__desc {
-    // background-color: wheat;
-    max-width: 50%;
-    line-height: 3.5rem;
-    letter-spacing: 0.3px;
-    text-decoration: none;
+    // max-width: 50%;
+    // line-height: 3.5rem;
+    // letter-spacing: 0.3px;
+    // text-decoration: none;
   }
 }
 
 //buttons
 
 .btn__container {
-  // background-color: orange;
   display: flex;
   justify-content: space-between;
   width: 40%;
   margin: 3rem auto;
   flex-wrap: wrap;
+  @media only screen and (max-width: 600px) {
+    width: 60%;
+  }
 }
 
 .btn {
@@ -89,8 +124,11 @@ $color-dark-pink: rgb(182, 44, 74);
   width: 13rem;
   padding: 1.5rem 1rem;
   font-size: 1.5rem;
-  margin: 2rem;
+  margin: 2rem auto;
   transition: all 0.4s;
+  @media only screen and (max-width: 600px) {
+    padding: 1rem 1.5rem;
+  }
 
   &:hover {
     background-color: darken($color-dark-blue, 10%);
@@ -103,22 +141,30 @@ $color-dark-pink: rgb(182, 44, 74);
     width: 30%;
     margin-top: 2%;
     margin-left: 10%;
-    height: 3rem;
-    border-radius: 3rem;
+    height: 2rem;
     border: none;
     outline: none;
+    background-color: transparent;
+    color: white;
     padding: 0.5rem 2rem;
-    background-color: rgb(218, 218, 224);
+    border-bottom: 2px solid white;
     font-size: 1.7rem;
     font-family: inherit; //font-family will not be inherited for input elements, hence specifying it explicitly
+    border-bottom: 1px solid white;
+
+    // background-color: green;
+    @media only screen and (max-width: 600px) {
+      width: 50%;
+    }
   }
   &__desc {
-    resize: none; //auto-resize disabled for text-area
-    height: 8rem;
-    border-radius: 1rem;
+    // height: 8rem;
   }
   &__cat {
-    width: 34%;
-    height: 4rem;
+    width: 35%;
+    height: 3rem;
+    @media only screen and (max-width: 600px) {
+      width: 60%;
+    }
   }
 }

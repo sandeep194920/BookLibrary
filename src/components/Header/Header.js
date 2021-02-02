@@ -9,6 +9,8 @@ function Header(props) {
         <header className={classes.header}>
             <img className={classes.header__logo} src={logo} alt="Logo" />
             <h1 className={classes.header__text}>Star Book Paradise  </h1>
+            {/* the css for addicon doesn't apply if className is given. Hence changing it to class */}
+            <ion-icon class={classes.header__addicon} onClick={() => props.onAddBookMode(true)} name="add-circle-outline"></ion-icon>
             <button className={classes.header__btn} onClick={() => props.onAddBookMode(true)}>Add New Book</button>
         </header>
     )

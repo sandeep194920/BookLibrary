@@ -20,11 +20,15 @@ $color-light-pink: #ca8e6a;
   }
   background-color: $color-book-background;
   display: inline-block;
-  width: 25rem;
+  width: 30rem;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0rem 1.5rem 4rem rgba($color-black, 0.15);
-  margin: 5rem;
+  margin: 12rem;
+
+  @media only screen and (max-width: 600px) {
+    margin: 8rem auto;
+  }
 
   &__details {
     padding: 0.5rem;
