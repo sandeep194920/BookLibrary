@@ -21,7 +21,7 @@ $color-dark-pink: rgb(182, 44, 74);
     width: 80%;
   }
   @media only screen and (max-width: 500px) {
-    width: 90%;
+    width: 100%;
   }
   @media only screen and (max-width: 300px) {
     width: 100%;
@@ -44,7 +44,8 @@ $color-dark-pink: rgb(182, 44, 74);
   flex-direction: column;
   color: $color-white;
   @media only screen and (max-width: 600px) {
-    max-width: 100%;
+    padding: 1rem;
+    // width: 100%;
   }
 
   &__key__val {
@@ -71,7 +72,7 @@ $color-dark-pink: rgb(182, 44, 74);
 
     @media only screen and (max-width: 600px) {
       width: 10rem;
-      margin-left: 5%;
+      margin-left: 3%;
     }
   }
   &__name {
@@ -85,7 +86,7 @@ $color-dark-pink: rgb(182, 44, 74);
     text-decoration: underline;
     text-underline-position: under;
     @media only screen and (max-width: 600px) {
-      margin-left: 17%;
+      margin-left: 12%;
     }
   }
   &__desc {
@@ -96,6 +97,11 @@ $color-dark-pink: rgb(182, 44, 74);
     max-height: 8rem;
     overflow-y: scroll;
     padding: 0.5rem 0.5rem 0 0;
+    @media only screen and (max-width: 600px) {
+      width: 80%;
+      max-height: 9rem;
+      line-height: 2.5rem;
+    }
   }
 }
 
@@ -108,7 +114,8 @@ $color-dark-pink: rgb(182, 44, 74);
   margin: 3rem auto;
   flex-wrap: wrap;
   @media only screen and (max-width: 600px) {
-    width: 60%;
+    width: 100%;
+    margin: 2rem auto;
   }
 }
 
@@ -148,13 +155,20 @@ $color-dark-pink: rgb(182, 44, 74);
     // background-color: green;
     @media only screen and (max-width: 600px) {
       width: 50%;
+      margin-left: 4%;
+      padding: 0.6rem 0.3rem;
     }
   }
   &__cat {
     width: 35%;
     height: 3rem;
     @media only screen and (max-width: 600px) {
-      width: 60%;
+      width: 53%;
+    }
+  }
+  &__desc {
+    @media only screen and (max-width: 600px) {
+      // padding-left: 0.1rem;
     }
   }
 }
