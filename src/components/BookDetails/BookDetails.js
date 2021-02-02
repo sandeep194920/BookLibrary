@@ -19,8 +19,7 @@ function BookDetails(props) {
 
     // when user clicks on Edit / Save btn
     const modeClickHandler = (e) => {
-        e.preventDefault();
-        console.log("Form submit")
+        e.preventDefault(); // to avoid page refresh
 
         //  below data is required for adding new book or updating the exisiting book
         const bookTitle = title ? title : props.bookSelected.name;
@@ -32,14 +31,10 @@ function BookDetails(props) {
 
         setMode(prevMode => {
             if (prevMode === "default") {
-                console.log("REached if")
                 return "edit"
             }
             else if (prevMode === "add") {
                 //creating a new book here. We fetch the existing books thereby their IDs. We will give our book a new id and then send it to the reducer which inturn pushes the new book to the books array
-                console.log("REached esle if");
-                console.log(props.books)
-
                 // we get the last id in the books so we can create a book with new id which is lastId + 1
                 const ids = props.books.map(book => book.id);
                 let lastId = null;
@@ -48,7 +43,6 @@ function BookDetails(props) {
                 } else {
                     lastId = Math.max(...ids);
                 }
-                console.log(lastId)
 
 
                 const newBookId = lastId + 1;
@@ -68,19 +62,8 @@ function BookDetails(props) {
             }
             else {
                 // saving the existing book
-                console.log("REached else")
-                // if existing value is not updated then we take the passed value from props 
-                // const bookTitle = title ? title : props.bookSelected.name;
-                // const bookPrice = price ? price : props.bookSelected.price;
-                // const bookPages = pages ? pages : props.bookSelected.pages;
-                // const bookCategory = category ? category : props.bookSelected.category;
-                // const bookLang = language ? language : props.bookSelected.language;
-                // const bookDesc = desc ? desc : props.bookSelected.desc;
-
-
                 // updating the existing book. Checking if the book exists. If id is null then book added is new book
                 if (props.bookSelected.id) {
-                    console.log("Update reached props.id")
                     const updatedBook = {
                         id: props.bookSelected.id,
                         name: bookTitle,
@@ -93,10 +76,7 @@ function BookDetails(props) {
 
                     // sending this action to reducer to update the book
                     props.onUpdateBook(updatedBook);
-                } else {
-                    console.log("No book to update")
                 }
-
                 return "default"
             }
         });
@@ -105,7 +85,6 @@ function BookDetails(props) {
 
     const detailsDefault = (
         <div className={classes.details}>
-
             <div className={classes.details__key__val}>
                 {/* classes.detail__head is common for headings, so it will be easy to style them at once */}
                 <p className={`${classes.details__namehead} ${classes.details__head}`}>Title </p>

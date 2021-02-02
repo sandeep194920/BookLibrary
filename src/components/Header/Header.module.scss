@@ -2,7 +2,7 @@ $color-green: rgb(7, 51, 7);
 $color-light-yellow: rgb(247, 203, 8);
 $color-light-pink: rgb(202, 142, 106);
 $color-light-blue: rgb(22, 144, 153);
-$color-white: #fff;
+$color-white: rgb(255, 255, 255);
 $color-dark-blue: rgb(0, 54, 85);
 
 .header {
@@ -50,7 +50,6 @@ $color-dark-blue: rgb(0, 54, 85);
   }
   &__btn {
     background-color: $color-dark-blue;
-    // color: black;
     float: right;
     margin-top: 1.2rem;
     padding: 1.5rem 2.5rem;

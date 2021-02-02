@@ -16,18 +16,12 @@ function Header(props) {
     )
 }
 
-// this is for getting most updated state from redux store
-const mapStateToProps = state => ({
-    // count: state.count
-})
-
 // for dispatching the actions into the store
 const mapDispatchToProps = dispatch => {
     return {
-        // onTogglePopup: (showPopup) => dispatch(actionCreators.togglePopup(showPopup))
         onAddBookMode: (addMode) => dispatch(actionCreators.addBookMode(addMode)),
     }
 }
 
 // connect is a higher order function that connects this component to store
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(null, mapDispatchToProps)(Header);

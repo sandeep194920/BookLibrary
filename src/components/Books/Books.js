@@ -1,18 +1,14 @@
 import React from 'react'
 import Book from '../Book/Book'
 import classes from "./Books.module.scss";
-// import { booksData } from '../../utils/data'
 import { connect } from "react-redux";
 
 
 function Books(props) {
 
-    React.useEffect(() => {
-        console.log("The books are");
-    }, [props.books])
-
     return (
         <>
+            {/* warning message dispayed when there are no books */}
             {props.books.length === 0 && <h1 className={classes.nobooks}>Aw snap, my book library went bankrupt. There are no more books to display. Please reload the page to save my business.</h1>}
             <div className={classes.books}>
                 {/*Static Data for testing */}

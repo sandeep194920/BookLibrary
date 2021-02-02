@@ -2,19 +2,17 @@ $color-green: rgb(7, 51, 7);
 $color-light-yellow: rgb(247, 203, 8);
 $color-light-pink: rgb(202, 142, 106);
 $color-light-blue: rgb(22, 144, 153);
-$color-white: #fff;
+$color-white: rgb(255, 255, 255);
 $color-dark-blue: rgb(0, 54, 85);
 $color-dark-pink: rgb(182, 44, 74);
 
 .bookDetails {
   width: 60%;
   margin: 10rem auto;
-  // height: 60rem; // will be removed later
   z-index: 100;
   position: fixed;
   top: 50%;
   left: 50%;
-  // padding: 4rem;
   transform: translate(
     -50%,
     -65%
@@ -39,7 +37,6 @@ $color-dark-pink: rgb(182, 44, 74);
 
 //details is the container inside the popup.
 .details {
-  // background-color: rgb(212, 185, 133);
   max-width: 100%;
   padding: 2rem;
   margin: auto;
@@ -47,7 +44,6 @@ $color-dark-pink: rgb(182, 44, 74);
   flex-direction: column;
   color: $color-white;
   @media only screen and (max-width: 600px) {
-    // padding: 1rem 0rem;
     max-width: 100%;
   }
 
@@ -68,15 +64,12 @@ $color-dark-pink: rgb(182, 44, 74);
     text-decoration: underline;
     text-underline-position: under; // provides a slight gap between text and the line
     letter-spacing: 1px;
-    // background-color: blue;
     @media only screen and (max-width: 900px) {
-      // padding: 1rem 0rem;
       width: 10rem;
       margin-left: 15%;
     }
 
     @media only screen and (max-width: 600px) {
-      // padding: 1rem 0rem;
       width: 10rem;
       margin-left: 5%;
     }
@@ -92,17 +85,14 @@ $color-dark-pink: rgb(182, 44, 74);
     text-decoration: underline;
     text-underline-position: under;
     @media only screen and (max-width: 600px) {
-      // padding: 1rem 0rem;
-
       margin-left: 17%;
     }
   }
-
   &__desc {
-    // max-width: 50%;
-    // line-height: 3.5rem;
-    // letter-spacing: 0.3px;
-    // text-decoration: none;
+    width: 50%;
+    text-decoration: none;
+    line-height: 4rem;
+    letter-spacing: 0.1rem;
   }
 }
 
@@ -156,9 +146,6 @@ $color-dark-pink: rgb(182, 44, 74);
     @media only screen and (max-width: 600px) {
       width: 50%;
     }
-  }
-  &__desc {
-    // height: 8rem;
   }
   &__cat {
     width: 35%;

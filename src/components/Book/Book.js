@@ -60,12 +60,6 @@ function Book(props) {
     )
 }
 
-const mapStateToProps = state => ({
-
-    // bookSelected: state.bookSelected
-    // count: state.count
-})
-
 const mapDispatchToProps = (dispatch) => {
     return {
         onShowBookDetails: (id) => dispatch(actionCreators.showBookDetails(id)),
@@ -73,5 +67,5 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Book);
+// we are not using mapStateToProps (consuming data from store / central-state), hence setting it to null 
+export default connect(null, mapDispatchToProps)(Book);
