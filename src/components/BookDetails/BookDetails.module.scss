@@ -93,6 +93,9 @@ $color-dark-pink: rgb(182, 44, 74);
     text-decoration: none;
     line-height: 4rem;
     letter-spacing: 0.1rem;
+    max-height: 8rem;
+    overflow-y: scroll;
+    padding: 0.5rem 0.5rem 0 0;
   }
 }
 
