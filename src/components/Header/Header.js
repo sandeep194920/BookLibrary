@@ -19,7 +19,7 @@ function Header(props) {
         className={classes.header__btn}
         onClick={() => props.onAddBookMode(true)}
       >
-        Add a Book
+        Add New Book
       </button>
     </header>
   )
