@@ -10,7 +10,7 @@ jobs:
     env:
       BUCKET: http://www.mybookstoreapp.s3-website.ca-central-1.amazonaws.com/
       dist: BUILD
-      REGION: Global
+      REGION: ca-central-1
       DIST_ID: E292PURBPPOAQM
 
     steps:
